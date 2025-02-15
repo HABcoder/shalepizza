@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    
+    <style>
+        /* Same styles as before */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+*{
+  font-family: 'Poppins', sans-serif;
+}
+        body {
+            margin: 0;
+            background-color: #f1e5c9;
+            color: #333;
+        }
+        body::-webkit-scrollbar{
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #e48508be;
+  border-radius: 30px;
+}
+        .navbar{
+  background-color: rgba(28, 28, 28, 1);
+}
+.navbar-brand img {
+  width: 110px;
+  margin-left: 10px;
+}
+.navbar-nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.navbar-nav .nav-item .nav-li{
+  color: white;
+}
+@media (min-width: 1117px) {
+  .navbar-nav {
+    width: 850px;
+  }
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+}
+.navbar-nav .nav-item .nav-li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  bottom: 10px;
+  height: 3px;
+  background-color: #f7b62a;
+  transition: 0.3s ease;
+}
+.navbar-nav .nav-item .nav-li:hover::before {
+  width: 100%;
+}
+.navbar-nav .nav-item .nav-li:hover {
+  color: #f7b62a;
+}
+.dropdown-menu .dropdown-item:hover{
+  color: #158000;
+  background-color: #d3d3d379;
+  font-weight: 600;
+}
+.nav-icon {
+  border: 1px solid rgb(61, 61, 61);
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.3s ease;
+  }
+  .nav-icon:hover {
+  transform: scale(1.2);
+  }
+.nav-item .nav-contact{
+  display: none;
+}
+@media (max-width: 1116px) {
+  .navbar-nav {
+    width: 840px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 1260px) {
+    .navbar-nav {
+    width: 740px;
+      font-size: 16px;
+    }
+  }
+@media (max-width: 991px) {
+  .navbar-nav {
+    width: 100%;
+    font-size: 18px;
+  }
+  .nav-item .nav-contact{
+    display: inline;
+  }
+  .nav-item .nav-icon {
+  display: none;
+  }
+}
+        .header {
+            text-align: center;
+            padding: 30px;
+            background-color: #ff5148;
+            color: #dd3a32;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #ffffff;
+        }
+
+       /* Shopping Cart Icon */
+       .header i.fas.fa-shopping-cart {
+    cursor: pointer;
+    font-size: 30px;
+    position: relative; /* This allows us to control the position of the icon */
+    top: -50px; /* Adjust this value to move the icon up */
+    left: 620px; /* Adjust to move the icon towards the right edge */
+    color: #583232;
+}
+    /* Hover Effect on Cart Icon */
+    .header i.fas.fa-shopping-cart:hover {
+        transform: scale(1.1);
+    }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background: #fff;
+            border: 2px solid #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            width: 90%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #FF6F61;
+        }
+
+        .menu-item .rating {
+            color: #131312;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e63946;
+        }
+
+        .menu-item .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-to-cart {
+            border: 2px solid #FF6F61;
+            color: #FF6F61;
+            background: transparent;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: #FF6F61;
+            color: white;
+        }
+
+        /* Cart panel styles */
+        #cartPanel {
+            position: fixed;
+            top: 0;
+            right: -390px;
+            width: 350px;
+            height: 100%;
+            background-color: #0a0a0a;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #cartPanel.open {
+            right: 0;
+        }
+
+        #cartPanel h2 {
+            color: #e63946;
+            font-size: 24px;
+        }
+
+        #cartPanel ul {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        #cartPanel ul li {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .remove-btn {
+            background-color: rgb(243, 53, 53);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+        .remove-btn:hover {
+            background-color: darkred;
+        }
+
+        /* Footer for buttons */
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .close-btn {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-btn {
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #d62828;
+        }
+
+        .checkout-btn:hover {
+            background-color: #d9534f;
+        }
+
+        /* Footer section css  */
+.footer-section{
+  background: rgb(15, 15, 15);
+}
+.social-icons{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    gap: 20px;
+  }
+
+
+  .socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    border-radius: 30px;
+    /* box-shadow: 1px 2px 5px rgb(117, 117, 117); */
+  }
+  /* instagram*/
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+  }
+
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: #128c7e;
+    transition-duration: 0.3s;
+  }
+
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+  }
+
+  .socialSvg {
+    width: 17px;
+  }
+
+
+  .socialSvg path {
+    fill: rgb(29, 29, 29);
+  }
+  .socialContainer:hover path {
+     fill: rgb(255, 255, 255);
+     }
+
+
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+
+  }
+
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .footer .company a{
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .footer .company a:hover{
+    color: #00853c;
+    text-decoration: underline;
+  }
+  .footer img{
+    height: 60px;
+  }
+  .link li{
+    list-style: none;
+  }
+  .link a{
+    text-decoration: none;
+    color: #fcfcfc;
+  }
+  .footer .quick-links li a:hover{
+    color: #00853c;
+    text-decoration:underline;
+  }
+ 
+  @media (max-width:600px) {
+    .foot{
+      text-align: center;
+    }
+  }
+    </style>
+</head>
+<body>
+
+        <!-- NAVBAR SECTION  -->
+        <div class="container-fluid p-0">
+          <nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark px-2 px-lg-2 py-lg-3 py-sm-2">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+              <div class="navbar-brand p-0">
+                <a href="SHALEPIZZA.html"><img src="1.png" alt="shale pizza"/></a>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto py-0 pe-5">
+                <li class="nav-item">
+                  <a href="SHALEPIZZA.html" class="nav-link nav-li text-light">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle nav-li text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menu
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="pizza2.html">Pick Your Pizza</a></li>
+                    <hr>
+                    <li><a class="dropdown-item" href="final menu.pdf" target="_blank">MenuVault</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle nav-li text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Downtown Pizza
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="Location.html">Dining Spot</a></li>
+                    <li><a class="dropdown-item" href="outlets.html">Our Outlets</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="feedback.html" class="nav-link nav-li text-light">SpotSurvey</a>
+                </li>
+                <li class="nav-item">
+                  <a href="franchise.html" class="nav-link nav-li text-light">Franchise Info</a>
+                </li>
+                <li class="nav-item">
+                  <a href="contact.html" class="nav-link text-light"><i class="fa-solid fa-user nav-icon" style="color: #ffffff;"></i><span class="nav-link nav-li nav-contact">Contact</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+
+    <div class="header">
+        <h1>Pick Your Pizza</h1>
+        <!-- Add the shopping cart icon inside the header -->
+        <i class="fas fa-shopping-cart" onclick="openCart()" style="cursor: pointer; font-size: 30px; color: #ffea28;"></i>
+    </div>
+    
+<div class="container">
+    <div class="menu">
+        <!-- Adding 25 pizzas with different names and sizes -->
+        <div class="menu-item">
+            <img src="pizza 1-min.jpg" alt="Pizza Sandwich">
+            <h3>Pizza Sandwich</h3>
+            <p class="price">$15.00</p>
+            <select id="size1">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Pizza Sandwich', document.getElementById('size1').value)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Repeat the above div structure with new pizza types and sizes to create 25 items -->
+        <div class="menu-item">
+            <img src="pizza2.jpg" alt="Grilled Pepperroni pizza Sandwich">
+            <h3>Grilled Pepperroni pizza Sandwich</h3>
+            <p class="price">$11.00</p>
+            <select id="size2">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Grilled Pepperroni pizza Sandwich', document.getElementById('size2').value)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- You can duplicate this block 23 more times with new pizza names and images -->
+        <!-- Adding Cake -->
+        <div class="menu-item">
+            <img src="pizza3-min.jpg" alt="Cake">
+            <h3>Cake</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Cake', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza4-min.jpg" alt="Cheesy Garlic Bread">
+            
+        <h3>Cheesy Garlic Bread</h3>
+            <p class="price">$14.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Cheesy GarlicBread', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza5-min.jpg" alt="Cheesy Pizza Sandwish">
+            <h3>Cheesy Pizza Sandwish</h3>
+            <p class="price">$13.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Cheesy Pizza Sandwish', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza6-min.jpg" alt="Cheesy Pizza">
+            <h3>Cheesy Pizza</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Cheesy Pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza7.jpg" alt="cheesy Pasta">
+            <h3>cheesy Pasta</h3>
+            <p class="price">$14.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('cheesy Pasta', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizz18-min.jpg" alt="GarlicBread">
+            <h3>GarlicBread</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('GarlicBread', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza9.jpg" alt="Veggie Pizza">
+            <h3>Veggie Pizza</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Veggie Pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza11-min.jpg" alt="Ice Cream">
+            <h3>Ice Cream</h3>
+            <p class="price">$10.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Ice Cream', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza12.jpg" alt="Lasagna">
+            <h3>Lasagna</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Lasagna', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza13.jpg" alt="Veggie Pizza">
+            <h3>Veggie Pizza</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Veggie Pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza14.jpg" alt="Cake">
+            <h3>cake</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Cake', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza15.jpg" alt="Pepperoni Pizza"> 
+            <h3>Pepperoni Pizza</h3>
+            <p class="price">$16.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Pepperoni Pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza16.jpg" alt="Veggie Pizza">
+            <h3>Veggie Pizza</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Veggie Pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="bottle1.jpg" alt="Coco Cola">
+            <h3>Coco Cola</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Coco Cola', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="bottle2.jpg" alt="All coldring">
+            <h3>All coldring</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('All coldring', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="bottle3.jpg" alt="Sprit">
+            <h3>Sprit</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Sprit', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza17.jpg" alt="Veg pizza">
+            <h3>Veg pizza</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Veg pizza', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="pizza22.jpg" alt="Stuffed Garlic Bread">
+            <h3>Stuffed Garlic Bread</h3>
+            <p class="price">$12.00</p>
+            <select id="size3">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Stuffed Garlic Bread', document.getElementById('size3').value)">Add to Cart</button>
+            </div>
+        </div>
+        
+
+        <!-- Add similar items for other pizzas, you can replace the name, image, and prices -->
+    </div>
+
+    <div id="cartPanel">
+        <h2>Your Cart</h2>
+        <ul id="cartItems">
+            <!-- Cart items will appear here -->
+        </ul>
+        <div class="footer-buttons">
+            <div>
+                <button class="close-btn" onclick="closeCart()">Close</button>
+            </div>
+            <div>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+            <div>
+                <p id="totalAmount" style="color: white; font-weight: bold;">Total Amount: $0.00</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+   <!-- FOOTER SECTION  -->
+   <section class="footer-sec">
+    <div class="container-fluid footer-section mt-5">
+      <div class="container">
+        <div class="row footer">
+          <div class="col-lg-3  col-sm-6 foot">
+            <div class="footer-img mt-5">
+              <img src="1.png" alt="logo" />
+            </div>
+            <p  class="text-light mt-3">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam
+              adipisci explicabo
+            </p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/foodfusionpk/?hl=en" class="socialContainer containerOne"
+                target="_blank">
+                <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                  </path>
+                </svg>
+              </a>
+
+  
+              <a href="https://pk.linkedin.com/company/foodfusion" class="socialContainer containerThree" target="_blank">
+                <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                  </path>
+                </svg>
+              </a>
+  
+              <a href="https://www.whatsapp.com/download/" class="socialContainer containerFour" target="_blank">
+                <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                  <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3  col-sm-6 foot">
+            <div class="footer-hour-text ms-5">
+              <h2 class="openhour mt-5" style="color: #f58302">Open Hours</h2>
+              <p class="mt-3 text-light">
+                <i class="fa-regular fa-clock" style="color: #e27b05"></i>
+                Mon-Thurs : 9am - 12pm
+              </p>
+              <p class="text-light">
+                <i class="fa-regular fa-clock" style="color: #e27b05"></i>
+                Fri-Sun : 8am - 4am
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3  col-sm-6 foot quick-links">
+            <h2 class="quick mt-5 ms-4" style="color: #e27b05">Quick links</h2>
+            <ul class="link mt-4">
+              <li><a href="SHALEPIZZA.html">Home</a></li>
+              <li class="link mt-1"><a href="pizza2.html">Menu</a></li>
+              <li class="link mt-1"><a href="about.html">About Us</a></li>
+              <li class="link mt-1"><a href="Location.html">Dining Spot</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-sm-6 company foot">
+            <h2 class="mt-5" style="color: #e27b05">Company</h2>
+            <p class="mt-4"><a href="Terms & Condition.pdf" target="_blank">Terms & condition</a></p>
+            <p><a href="Privacy Policy.docx" target="_blank">Privacy Policy</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <p class="text-center text-success mt-3">&copy;copyright: All Right Reserved</p>
+        </div>
+      </div>
+    </div>
+   </section>
+  
+
+    <!-- Include SweetAlert 2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="bootstrap.min.js"></script>
+
+
+    
+<script>
+    let cart = [];
+let itemPrices = {
+    'Margherita Pizza': 15.00,
+    'Pepperoni Pizza': 18.00,
+    'Veggie Pizza': 12.00,
+    'Ice Cream': 10.00,
+    'Lasagna': 12.00,
+    'Pizza Sandwich': 15.00,
+    'Grilled Pepperroni pizza Sandwich': 11.00,
+    'Cake': 12.00,
+    'Cheesy GarlicBread': 14.00,
+    'Cheesy Pizza Sandwish' : 13.00,
+    'Cheesy Pizza': 12.00,
+    'cheesy Pasta' : 14.00,
+    'GarlicBread' : 12.00,
+    'Coco Cola' : 12.00,
+    'All coldring' : 12.00,
+    'Sprit' : 12.00,
+    'Veg pizza' : 12.00,
+    'Spaghetti' : 12.00,
+    'Stuffed Garlic Bread' : 12.00,
+    'Waffles' : 12.00,
+    
+
+       
+
+};
+
+function addToCart(item, size) {
+    let itemWithSize = `${item} - ${size}`;
+    cart.push(itemWithSize);
+    document.getElementById('cartPanel').classList.add('open');
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = ''; // Clear current items in the cart
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+
+        // Extracting the correct pizza name (trimming spaces)
+        let pizzaName = item.split(' - ')[0].trim();
+
+        console.log(`Cart Item: "${item}" → Extracted Name: "${pizzaName}"`);
+
+        if (!(pizzaName in itemPrices)) {
+            console.error(`Error: "${pizzaName}" not found in itemPrices!`);
+        }
+
+        let pizzaPrice = itemPrices[pizzaName] || 0; // Default to 0 if undefined
+        totalPrice += pizzaPrice;
+
+        console.log(`Adding: ${pizzaName}, Price: ${pizzaPrice}, Total: ${totalPrice}`); // Debugging
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.classList.add('remove-btn');
+        removeBtn.onclick = () => removeItem(index);
+        li.appendChild(removeBtn);
+
+        cartItems.appendChild(li);
+    });
+
+    // Update total amount at the bottom
+    document.getElementById('totalAmount').textContent = `Total Amount: $${totalPrice.toFixed(2)}`;
+
+    // Update cart badge (number of items in the cart)
+    document.getElementById('cartBadge').textContent = cart.length;
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function closeCart() {
+    document.getElementById('cartPanel').classList.remove('open');
+}
+
+function checkout() {
+    const totalPrice = calculateTotalPrice();
+    
+    Swal.fire({
+        title: 'Proceed to Checkout?',
+        text: `Your total is $${totalPrice.toFixed(2)}. Do you want to continue?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, proceed!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Order Placed!',
+                `Your total is $${totalPrice.toFixed(2)}. Thank you for your order!`,
+                'success'
+            );
+            cart = [];
+            updateCart();
+        }
+    });
+}
+
+function calculateTotalPrice() {
+    let totalPrice = 0;
+    cart.forEach(item => {
+        let pizzaName = item.split(' - ')[0].trim();
+        
+        console.log(`Checking price for: "${pizzaName}"`);
+
+        let pizzaPrice = itemPrices[pizzaName] || 0;
+        totalPrice += pizzaPrice;
+    });
+    return totalPrice;
+}
+
+function openCart() {
+    document.getElementById('cartPanel').classList.add('open');
+}
+
+</script>
+
+
+</body>
+</html>

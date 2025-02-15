@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <title>Login Form</title>
+     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+
+}
+
+.navbar{
+    background-color: rgba(28, 28, 28, 1);
+  }
+  .navbar-brand img {
+    width: 110px;
+    margin-left: 10px;
+  }
+  .navbar-nav {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .navbar-nav .nav-item .nav-li{
+    color: white;
+  }
+  @media (min-width: 1117px) {
+    .navbar-nav {
+      width: 850px;
+    }
+  }
+  .navbar-nav .nav-item .nav-li:hover {
+    color: #f7b62a;
+  }
+  .navbar-nav .nav-item {
+    position: relative;
+  }
+  .navbar-nav .nav-item .nav-li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: 10px;
+    height: 3px;
+    background-color: #f7b62a;
+    transition: 0.3s ease;
+  }
+  .navbar-nav .nav-item .nav-li:hover::before {
+    width: 100%;
+  }
+  .dropdown-menu .dropdown-item:hover{
+    color: #158000;
+    background-color: #d3d3d379;
+    font-weight: 600;
+  }
+  .nav-icon {
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 20px;
+    padding: 10px;
+    transition: 0.3s ease;
+    }
+    .nav-icon:hover {
+    transform: scale(1.2);
+    }
+  .nav-item .nav-contact{
+    display: none;
+  }
+  @media (max-width: 1116px) {
+    .navbar-nav {
+      width: 840px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 1260px) {
+      .navbar-nav {
+      width: 740px;
+        font-size: 16px;
+      }
+    }
+  @media (max-width: 991px) {
+    .navbar-nav {
+      width: 100%;
+      font-size: 18px;
+    }
+    .nav-contact{
+      display: inline;
+    }
+    .nav-item i {
+    display: none;
+    }
+  }
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: beige;
+}
+.contain{
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0 , 0 ,0 , 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 760px;
+    max-width: 100%;
+    min-height: 480px;
+}
+.contain p{
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+.conatin span{
+    font-size: 12px;
+}
+.contain a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+
+.contain button {
+    padding: 0.8em 1.8em;
+    border: 2px solid orange;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: orange;
+   }
+   
+   .contain button::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: orange;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .contain button:hover::before {
+    width: 105%;
+   }
+   
+   .contain button:hover {
+    color: #111;
+   }
+
+.contain button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+    color: white;
+}
+.contain form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.contain input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+}
+.register, .Login{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+
+
+}
+.Login{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+
+}
+
+.contain.active .Login{
+    transform: translateX(100%);
+}
+.register{
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+
+}
+
+.contain.active .register{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+@keyframes move {
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+
+    }
+    
+}
+.social-icon{
+    margin: 20px 0;
+}
+.social-icon a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+
+}
+.toogle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50px;
+    z-index: 100;
+    transition: all 0.6s ease-in-out;
+}
+.contain.active .toogle-container{
+    transform: translateX(-100%);
+    border-radius: 50px;
+
+}
+.toogle{
+    background-image: url(contact\ \(1\).jpg);
+    background-position: right;
+    height: 100%;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+
+}
+.contain.active .toogle{
+    transform: translateX(50%);
+}
+.toogle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+.toogle-left{
+    transform: translateX(-200%);
+}
+.contain.active .toogle-left{
+    transform: translateX(0);
+}
+.toogle-right{
+    right: 0;
+    transform: translateX(0);
+
+}
+.contain.active .toogle-right{
+    transform: translateX(200%);
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .contain input{
+        margin: 2px 0;
+        padding: 5px 15px;
+        font-size: 8px;
+    }
+    .contain h1{
+        line-height: 5px;
+        font-size: 20px;
+    }
+   .contain i{
+        line-height: 4px;
+   }
+
+    .register, .Login{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    
+    
+    }
+    .Login{
+        top: 15%;
+        width: 100%;
+        z-index: 2;
+    
+    }
+    
+    .contain.active .Login{
+        transform: translateY(100%);
+    }
+    .register{
+        top: -13%;
+        width: 100%;
+        z-index: 1;
+        opacity: 0;
+    
+    }
+    
+    .contain.active .register{
+        transform: translateY(0%);
+        opacity: 1;
+        z-index: 5;
+        animation: move 0.6s;
+    }
+    @keyframes move {
+        0%, 49.99%{
+            opacity: 0;
+            z-index: 1;
+    
+        }
+        50%, 100%{
+            opacity: 1;
+            z-index: 5;
+    
+        }
+        
+    }
+
+    .contain button.hidden{
+        background-color: transparent;
+        border-color: #fff;
+    }
+
+    
+    .toogle-container{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 30%;
+        overflow: hidden;
+        border-radius: 50px;
+        z-index: 100;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .contain.active .toogle-container{
+        transform: translateY(240%);
+        border-radius: 50px;
+    
+    }  
+
+    .toogle{
+        background-image: url(contact\ \(2\).jpg);
+        background-position: right;
+        height: 100%;
+        color: #fff;
+        position: relative;
+        left: -100%;
+        width: 200%;
+    transform: translateY(0);
+        transition: all 0.6s ease-in-out;
+    
+    }
+    .contain.active .toogle{
+        transform: translateX(50%);
+    }
+    .toogle-panel{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 30px;
+        flex-direction: column;
+        text-align: center;
+        top: 0;
+        transform: translateX(0);
+        transition: all 0.6s ease-in-out;
+    }
+    .toogle-left{
+        transform: translateY(-200%);
+    }
+    .contain.active .toogle-left{
+        transform: translateY(0);
+    }
+    .toogle-right{
+        right: 0;
+        transform: translateY(0);
+    
+    }
+    .contain.active .toogle-right{
+        transform: translateY(200%);
+    }
+    
+    }
+     </style>
+  </head>
+  <body>
+     <!-- NAVBAR SECTION  -->
+     <div class="container-fluid p-0">
+      <nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark px-2 px-lg-2 py-lg-3 py-sm-2">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="navbar-brand p-0">
+            <a href="SHALEPIZZA.html"><img src="1.png" alt="shale pizza"/></a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto py-0 pe-5">
+            <li class="nav-item">
+              <a href="SHALEPIZZA.html" class="nav-link nav-li text-light">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-li text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="pizza2.html">Pick Your Pizza</a></li>
+                <hr>
+                <li><a class="dropdown-item" href="final menu.pdf" target="_blank">MenuVault</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-li text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Downtown Pizza
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="Location.html">Dining Spot</a></li>
+                <li><a class="dropdown-item" href="outlets.html">Our Outlets</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="feedback.html" class="nav-link nav-li text-light">SpotSurvey</a>
+            </li>
+            <li class="nav-item">
+              <a href="franchise.html" class="nav-link nav-li text-light">Franchise Info</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link text-light"><i class="fa-solid fa-user nav-icon" style="color: #ffffff;"></i><span class="nav-link nav-li nav-contact">Contact</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+
+      <div class="main">
+    <div class="contain" id="container">
+      <div class="register">
+        <form method="POST" id="registeration-form">
+          <h1>Registeration</h1>
+          <div class="social-icon">
+            <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a>
+            <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="ri-instagram-line"></i></a>
+            <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%3Fhl%3Den-US&ec=GAlA8wE&hl=en&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1274805740%3A1738863268426786&ddm=1" target="_blank"><i class="ri-google-fill"></i></a>
+          </div>
+          <span>or Use email for registeration</span>
+          <!-- <input type="hidden" name="access_key" value="aaa1e825-7ab0-49b3-8a4b-a05bc572c200"> -->
+          <input type="text" name="name" placeholder="Username" id="reg-name"/>
+          <h5 id="name-error-messege" class="error"></h5>
+          <input type="email" name="email" placeholder="Email" id="register-email"/>
+          <h5 id="register-error-messege" class="error"></h5>
+          <input type="password" name="pass" placeholder="Password" id="register-password" />
+          <h5 id="registeration-error-messege" class="error"></h5>
+
+          <button type="submit">Register</button>
+        </form>
+      </div>
+
+      <div class="Login">
+        <form method="POST" id="login-form">
+          <h1>Login</h1>
+          <div class="social-icon">
+            <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a>
+            <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="ri-instagram-line"></i></a>
+            <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%3Fhl%3Den-US&ec=GAlA8wE&hl=en&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1274805740%3A1738863268426786&ddm=1" target="_blank"><i class="ri-google-fill"></i></a>
+          </div>
+          <span>or Use email for Login</span>
+          <!-- <input type="hidden" name="access_key" value="aaa1e825-7ab0-49b3-8a4b-a05bc572c200"> -->
+          <input type="email" name="email" placeholder="Email" id="login-email"/>
+          <h5 id="login-error-messege" class="error"></h5>
+
+          <input type="password" name="pass" placeholder="Password" id="login-password" />
+          <h5 id="login-error-Pass" class="error"></h5>
+
+          <a href="#">Forget Password</a>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div class="toogle-container">
+        <div class="toogle">
+            <div class="toogle-panel toogle-left">
+                <h1>Welcome User!</h1>
+            <p>if you already have an account</p>
+            <button class="hidden" id="login">Login</button>
+            </div>
+            <div class="toogle-panel toogle-right">
+                <h1>Hello Welcome!</h1>
+            <p>if you don't already have an account</p>
+            <button class="hidden" id="register">Register</button>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="bootstrap.min.js"></script>
+    <script>
+      // Toggle panel
+const container = document.getElementById("container");
+const registerbtn = document.getElementById("register");
+const loginbtn = document.getElementById("login");
+
+registerbtn.addEventListener("click", () => {
+  container.classList.add("active");
+});
+
+loginbtn.addEventListener("click", () => {
+  container.classList.remove("active");
+});
+
+// Registration email regex
+function validateEmail(email) {
+  const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  return emailPattern.test(email);
+}
+
+// Registration password regex
+function validatePassword(password) {
+  const passwordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+  return passwordPattern.test(password);
+}
+
+// Registration username regex
+function validateUsername(username) {
+  const usernamePattern =/^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/;
+  return usernamePattern.test(username);
+}
+
+
+// Registration form submit event
+let register = document.getElementById("registeration-form");
+const namevalue = document.getElementById("reg-name")
+const emailvalue = document.getElementById("register-email");
+const registerPassword = document.getElementById("register-password");
+const errorMessege = document.getElementById("register-error-messege");
+const regPassError = document.getElementById("registeration-error-messege");
+const regNameError = document.getElementById("name-error-messege");
+
+
+register.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const regUsername = document.getElementById("reg-name").value;
+  const regEmail = emailvalue.value;
+  const regPass = registerPassword.value;
+
+  // Validate email
+  if (!validateEmail(regEmail)) {
+    errorMessege.textContent = "Please Enter Valid Email Address.";
+    return; // Stop execution if email is invalid
+  } else {
+    errorMessege.textContent = ''; // Clear error message
+  }
+
+  // Validate password
+  if (!validatePassword(regPass)) {
+    regPassError.textContent = "Please Enter Valid Password.";
+    return; // Stop execution if password is invalid
+  } else {
+    regPassError.textContent = ''; // Clear error message
+  }
+
+  // Validate Name
+  if (!validateUsername(regUsername)) {
+    regNameError.textContent = "Please Enter Valid Name.";
+    return; // Stop execution if password is invalid
+  } else {
+    regNameError.textContent = ''; // Clear error message
+  }
+
+  // Create new user object
+  var regNewUser = {
+    Username: regUsername,
+    Email: regEmail,
+    Password: regPass
+  };
+
+  // Get existing users or initialize empty array
+  const regAllUser = JSON.parse(localStorage.getItem('RegAllUser')) || [];
+  regAllUser.push(regNewUser);
+
+  // Save data to localStorage
+  localStorage.setItem('RegAllUser', JSON.stringify(regAllUser));
+
+  // Alert user and reset the form
+  Swal.fire({
+    icon: "success",
+    title: "Saved",
+    text: "Data has been Saved Successfully"
+  });
+  register.reset();
+});
+
+// Login form validation
+let login = document.getElementById("login-form");
+const loginEmailvalue = document.getElementById("login-email");
+const loginPassword = document.getElementById("login-password");
+const loginErrorMessege = document.getElementById("login-error-messege");
+const loginPassError = document.getElementById("login-error-Pass");
+
+login.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const loginEmail = loginEmailvalue.value;
+  const loginPass = loginPassword.value;
+
+  // Validate email
+  if (!validateEmail(loginEmail)) {
+    loginErrorMessege.textContent = "Please Enter Valid Email Address.";
+    return; // Stop execution if email is invalid
+  } else {
+    loginErrorMessege.textContent = ''; // Clear error message
+  }
+
+  // Validate password
+  if (!validatePassword(loginPass)) {
+    loginPassError.textContent = "Please Enter Valid Password.";
+    return; // Stop execution if password is invalid
+  } else {
+    loginPassError.textContent = ''; // Clear error message
+  }
+
+  // Check if login credentials match any stored user (simple check)
+  const regAllUser = JSON.parse(localStorage.getItem('RegAllUser')) || [];
+  const userExists = regAllUser.some(user => user.Email === loginEmail && user.Password === loginPass);
+
+  if (userExists) {
+    Swal.fire({
+      icon: "success",
+      title: "Login",
+      text: "You are Logged In."
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Invalid Email or Passowrd!",
+    });
+  }
+});
+    </script>
+   
+  </body>      
+</html>

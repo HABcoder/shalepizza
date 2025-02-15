@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHALE PIZZA</title>
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <!-- ICONS CDN  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- BOOTSTRAP CDN  -->
+ <link rel="stylesheet" href="bootstrap.min.css">
+  <!-- for swiper slider  -->
+  <link rel="stylesheet" href="swiper-bundle.min.css">
+  <!-- fancy box  -->
+  <link rel="stylesheet" href="jquery.fancybox.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+*{
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: #eee;
+}
+body::-webkit-scrollbar{
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #e48408;
+  border-radius: 30px;
+}
+.navbar{
+  background-color: rgba(28, 28, 28, 1);
+}
+.navbar-brand img {
+  width: 110px;
+  margin-left: 10px;
+}
+.navbar-nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.navbar-nav .nav-item .nav-li{
+  color: white;
+}
+@media (min-width: 1117px) {
+  .navbar-nav {
+    width: 850px;
+  }
+}
+.navbar-nav .nav-item .nav-li:hover {
+  color: #f7b62a;
+}
+.navbar-nav .nav-item {
+  position: relative;
+}
+.navbar-nav .nav-item .nav-li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  bottom: 10px;
+  height: 3px;
+  background-color: #f7b62a;
+  transition: 0.3s ease;
+}
+.navbar-nav .nav-item .nav-li:hover::before {
+  width: 100%;
+}
+.dropdown-menu .dropdown-item:hover{
+  color: #158000;
+  background-color: #d3d3d379;
+  font-weight: 600;
+}
+.nav-icon {
+  border: 1px solid rgb(61, 61, 61);
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.3s ease;
+  }
+  .nav-icon:hover {
+  transform: scale(1.2);
+  }
+.nav-contact{
+  display: none;
+}
+@media (max-width: 1116px) {
+  .navbar-nav {
+    width: 840px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 1260px) {
+    .navbar-nav {
+    width: 740px;
+      font-size: 16px;
+    }
+  }
+@media (max-width: 991px) {
+  .navbar-nav {
+    width: 100%;
+    font-size: 18px;
+  }
+  .nav-contact{
+    display: inline;
+  }
+  .nav-icon {
+  display: none;
+  }
+}
+
+
+.sub-title {
+  margin-top: 5%;
+  text-transform: uppercase;
+  display: inline-block;
+  background: #f3f3f5;
+  box-shadow: 9px 9px 12px #e4e4e4, -9px -9px 12px #ffffff;
+  padding: 3px 20px;
+  border-radius: 60px;
+  color: #db7807;
+  font-size: 14px;
+}
+.h2-title{
+  margin-top: 1%;
+}
+.h2-title span{
+  display: block;
+}
+
+/* carousel image  */
+.card-inner .img1 {
+  position: relative;
+}
+.gallery-button{
+  display: flex;
+}
+.gallery-button #btn1{
+  position: absolute;
+  bottom: 15%;
+  left: 12%;
+  width: 10%;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #f7ca02;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 160%;
+  transition: 0.2s ease;
+
+}
+.gallery-button .about-video{
+  position: absolute;
+  bottom: 15%;
+  left: 25%;
+  width: 12%;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #f5c104;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bc0101;
+  font-size: 160%;
+  transition: 0.3s ease;
+}
+.play-btn{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-decoration: none;
+  color: #bc0101;
+  font-size: 110%;
+}
+.play-btn i{
+  color: #c21e1e;
+  font-size: 135%;
+  margin-right: 6px;
+}
+.about-video:hover {
+  background-color: #000000;
+  border: 1px solid #e9be00;
+  transform: scale(1.1);
+}
+.about-video:hover .play-btn,
+.about-video:hover i{
+  color: #e9be00;
+}
+
+.carousel-item .gallery-button #btn1:hover {
+  color: #e9be00;
+  border: 1px solid #e9be00;
+  background-color: #000;
+  transform: scale(1.1);
+}
+
+.carousel-item .img3{
+  position: relative;
+}
+#cr3{
+  position: absolute;
+  bottom: 10%;
+  right: 30%;
+  width: 12%;
+  height: 10%;
+  border-radius: 15px;
+  background-color: #c21e1e;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+#cr3:hover {
+  border: 1px solid #c21e1e;
+  background-color: transparent;
+  color: #c21e1e;
+  transform: scale(1.1);
+
+}
+
+
+
+
+
+/* specialities section  */
+.specialities i {
+  font-size: 250%;
+  color: #f5c104;
+}
+.specialities h1 {
+  font-size: 150%;
+  color: #000000;
+  text-transform: capitalize;
+}
+.specialities p {
+  font-size: 85%;
+  color: #000000;
+}
+.specialities .card{
+  transition: 0.4s ease;
+}
+.specialities .card:hover {
+  /* background-color: #f5c104; */
+  background-color: #00853c;
+  /* background-color: red; */
+}
+.specialities .card:hover h1,
+.specialities .card:hover p,
+.specialities .card:hover i {
+  color: rgb(255, 255, 255);
+}
+@media (max-width:768px){
+  .specialities p{
+    font-size: 75%;
+  }
+}
+
+  /* weekly offfer + combo offer  */
+  .offers h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #424242;
+    font-weight: 700;
+}
+
+.offer-card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #c01f0d8e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* overflow: hidden; */
+    transition: transform 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+}
+.offer-img{
+  display: flex;
+   justify-content: center;
+}
+
+.offer-image {
+  position: relative;
+  left: -15px;
+    width: 70%;
+    transition: transform 0.3s;   
+}
+
+.offer-image:hover {
+  transform: translateY(-30px) scale(1.1);
+}
+
+.offer-details {
+    text-align: center;
+}
+
+.offer-details h3 {
+    margin: 10px 0;
+    color: #ffffff;
+    background-color: #cc1c08;
+}
+
+.offer-details p {
+    color: #666;
+    font-size: 15px;
+}
+
+@media (max-width:1399px) {
+  .offer-details p {
+    font-size: 14px;
+}
+}
+.combo-img{
+  width: 70%;
+}
+.offer-details .price {
+    font-weight: bold;
+    color: #02995a;
+    font-size: 20px;
+}
+.offer-btn{
+  border-radius: 10px;
+  border:1px solid #e74c3c;
+  font-size: 13px;
+  color: #e74c3c;
+  background-color: #f9f9f9;
+}
+.offer-btn:hover {
+  color: #ffffff;
+  background-color: #e74c3c;
+  font-weight: 600;
+}
+
+@media (max-width:1199px) {
+.offer-details .combo-p{
+  font-size: 13px;
+}
+}
+@media (max-width:991px) {
+.offer-details .combo-p{
+  font-size: 16px;
+}
+}
+@media (max-width:767px) {
+.offer-details p{
+  font-size: 18px;
+}
+}
+
+/* chef section  */
+.flip-card {
+height: 450px;
+border: 2px solid #dfdfdf;
+perspective: 1000px;
+border-radius: 20px;
+box-shadow: 0px 28px 45px #dfdfdf;
+}
+
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 60%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+}
+
+.front-card,
+.back-card {
+position: absolute;
+width: 100%;
+height: 150%;
+backface-visibility: hidden;
+}
+
+.front-card img{
+height: 80%;
+width: 90%;
+border-radius: 20px;
+}
+
+.back-card {
+height: 150%;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 10px;
+color: rgb(0, 0, 0);
+transform: rotateY(180deg);
+}
+.back-text{
+height: 100%;
+ border-radius: 20px;
+ border: 1px solid #919191be;
+}
+.back-card i {
+font-size: 30px;
+border: 1px solid white;
+border-radius: 20px;
+background-color: white;
+}
+.back-card p {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+@media (max-width:1450px){
+  .back-card p {
+    font-size: 95%;
+  }
+}
+@media (max-width:1199px){
+  .front-card h4 {
+    font-size: 125%;
+  }
+}
+@media (max-width:1205px){
+  .back-card p {
+    font-size: 75%;
+  }
+}
+@media (max-width:991px){
+  .back-card p {
+    font-size: 95%;
+  }
+  .front-card h4 {
+    font-size: 165%;
+  }
+}
+@media (max-width:767px){
+  .back-card p {
+    font-size: 125%;
+  }
+  .front-card h4 {
+    font-size: 195%;
+  }
+  .front-card img{
+    height: 90%;
+    width: 85%;
+    }
+}
+@media (max-width:390px){
+  .back-card p {
+    font-size: 110%;
+  }
+  .flip-card {
+    height: 380px;
+    }
+  .front-card h4 {
+    font-size: 165%;
+  }
+  .front-card img{
+    height: 80%;
+    width: 90%;
+    }
+}
+
+
+/* testimonials css  */
+.h2-title {
+text-transform: capitalize;
+} 
+
+.test-img{
+  height: 90%;
+  width: 100%;
+}
+
+.testimonials-box {
+  position: relative;
+  padding: 30px;
+  padding-top: 0;
+  border-radius: 30px;
+  margin: 50px 0 30px;
+  background: linear-gradient(145deg, #ececec, #ffffff);
+  box-shadow: 28px 28px 45px #e6e6e6, -28px -28px 45px #ffffff;
+  transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+.testimonials-box:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.testimonials-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  top: -40px;
+  box-shadow: 10px 10px 60px #d4d4d4;
+  overflow: hidden; 
+}
+
+.testimonials-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; 
+}
+
+.testimonials-box-text .h3-title {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.testimonials-box-text p {
+  margin: 0;
+  overflow: hidden;
+}
+
+.h2-title span,
+.sub-title span {
+margin-top: 1%;
+display: block;
+}
+
+
+.testmonial-img {
+position: absolute;
+top: -15%;
+}
+
+.testimonial-text {
+margin-top: 25%;
+}
+
+
+/* gallery section  */
+ .book-table {
+  overflow: hidden;
+}
+
+#gallery {
+  padding-top: 80px;
+}
+
+.book-table-img {
+  height: 70vh;
+  min-height: 500px;
+  border-radius: 30px;
+}
+
+.back-img {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-wp {
+  position: relative;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  position: unset;
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  font-size: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  color: #0d0d25;
+  background: #ffffff;
+  box-shadow: -20px 20px 60px #d4d4d4, 20px -20px 60px #ffffff;
+  padding-top: 1px;
+  padding-right: 2px;
+  transition: 0.3s;
+}
+
+.swiper-button-next {
+  box-shadow: 20px 20px 60px #d4d4d4, -20px -20px 60px #ffffff;
+  padding-left: 3px;
+}
+
+.swiper-button-prev:hover {
+  box-shadow: inset 5px 5px 20px #d4d4d4, inset -5px -5px 20px #ffffff;
+  color: #fcbc30;
+}
+
+.swiper-button-next:hover {
+  box-shadow: inset -5px 5px 20px #d4d4d4, inset 5px -5px 20px #ffffff;
+  color: #fcbc30;
+}
+
+.swiper-pagination {
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 60px;
+  background: linear-gradient(145deg, #ececec, #ffffff);
+  box-shadow: 25px 28px 55px #d4d4d4, -28px -28px 55px #ffffff;
+  max-width: fit-content;
+  left: 50% !important;
+  transform: translate(-50%, 0);
+  bottom: 0 !important;
+  color: #000;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0px 10px !important;
+  border-radius: 10px;
+  transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+.swiper-pagination-bullet-active {
+  background: #fcbc30;
+  width: 30px;
+}
+@media (max-width: 991px) {
+ 
+   .swiper-button-wp .swiper-button {
+      display: none !important;
+  }
+ 
+  #gallery {
+      padding-top: 90px;
+  }
+  .swiper-pagination-bullet {
+      margin: 0 5px !important;
+      width: 8px;
+      height: 8px;
+  }
+  .swiper-pagination {
+      padding: 6px 20px;
+  }
+  .swiper-button-wp {
+      margin-top: 40px;
+  }
+  .swiper-pagination-bullet-active {
+      width: 16px;
+  }  
+
+}
+@media (max-width: 767px) {
+  .book-table-img {
+      min-height: 340px;
+      height: 60vh;
+  }
+}
+@media (max-width: 575px) {
+  .gallery-img {
+      height: 50vw;
+  }
+} 
+
+
+
+/* center image css  */
+.book-food{
+width: 100%;
+background: url("bg-3.jpg") no-repeat center;
+background-size: cover;
+background-attachment: fixed;
+background-position: 0 71.9125px;
+padding: 5.375rem 0;
+}
+.book-food-text{
+justify-content: center;
+}
+.book-food-text h2{
+text-align: center;
+color: white;
+font-size: 300%;
+text-shadow: 0 5px 8px rgb(73, 73, 73);
+}
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #434e3a;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgb(233, 156, 93) 10.8%,
+    rgb(224, 137, 22) 94.3%
+  );
+  transition: all 0.475s;
+}
+
+/* about us section css  */
+.about-img {
+   height: 400px;
+   background: url(br1.png) no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+  }
+
+
+
+.about-head {
+  text-align: center;
+}
+.about-title{
+  display: flex;
+  justify-content: center;
+}
+.about-head h2{
+  width: 13%;
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  background-color: #e4ba01;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-size: 200%;
+}
+.about-para {
+  color: white;
+   display: flex;
+   justify-content: center;
+}
+.about-head p{
+  width: 45%;
+  font-size: 140%;
+  background-color: #00000098;
+  padding: 10px;
+  border-radius: 10px;
+}
+.button1 {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #434e3a;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button1:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgb(35, 218, 75) 10.8%,
+    rgb(5, 139, 0) 94.3%
+  );
+  transition: all 0.475s;
+}
+
+
+
+
+      /* blog section  */
+      .blog-box{
+        border-radius: 6px;
+      }
+      .blog-inner{
+        background: linear-gradient(145deg, rgba(214, 214, 214, 0.616), #ffffff);
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: 0px 4px 8px #a09f9f9f;
+        transition: 0.2s ease;      
+      }
+      .blog-inner:hover{
+        transform: scale(1.03);
+      }
+
+     .blog-img img{
+      border-radius: 15px;
+      transition: 0.2s ease;
+     }
+     .blog-img img:hover{
+      transform: scale(1.08);
+     }
+     .blog-text h2{
+      font-size: 150%;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+     }
+     .blog-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 300px;
+      border-radius: 10%;
+      position: relative;
+      overflow: hidden; 
+    }
+    
+    .blog-img img {
+      width: 100%;
+      height: 300px;
+      border-radius: 10%; 
+    }
+
+
+/* Footer section css  */
+.footer-section{
+    background: rgb(15, 15, 15);
+  }
+  .social-icons{
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px;
+      gap: 20px;
+    }
+  
+  
+    .socialContainer {
+      width: 52px;
+      height: 52px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition-duration: 0.3s;
+      border-radius: 30px;
+    }
+    /* instagram*/
+    .containerOne:hover {
+      background-color: #d62976;
+      transition-duration: 0.3s;
+    }
+    
+    /* linkdin*/
+    .containerThree:hover {
+      background-color: #0072b1;
+      transition-duration: 0.3s;
+    }
+    /* Whatsapp*/
+    .containerFour:hover {
+      background-color: #128c7e;
+      transition-duration: 0.3s;
+    }
+  
+    .socialContainer:active {
+      transform: scale(0.9);
+      transition-duration: 0.3s;
+    }
+  
+    .socialSvg {
+      width: 17px;
+    }
+  
+  
+    .socialSvg path {
+      fill: rgb(29, 29, 29);
+    }
+    .socialContainer:hover path {
+       fill: rgb(255, 255, 255);
+       }
+  
+  
+    .socialContainer:hover .socialSvg {
+      animation: slide-in-top 0.3s both;
+  
+    }
+  
+    @keyframes slide-in-top {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+  
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .footer .company a{
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .footer .company a:hover{
+      color: #00853c;
+      text-decoration: underline;
+    }
+    .footer img{
+      height: 60px;
+    }
+    .link li{
+      list-style: none;
+    }
+    .link a{
+      text-decoration: none;
+      color: #fcfcfc;
+    }
+    .footer .quick-links li a:hover{
+      color: #00853c;
+      text-decoration:underline;
+    }
+   
+    @media (max-width:600px) {
+      .foot{
+        text-align: center;
+      }
+    }
+
+
+    @media (max-width: 1900px) {
+      .play-btn{
+      font-size: 105%;
+      }
+      .play-btn i{
+        margin-right: 4px;
+        font-size: 140%;
+      }
+    }
+    @media (min-width: 1700px) {
+      #cr3{
+        font-size: 230%;
+        width: 12%;
+        height: 14%;
+        right: 25%;
+      }
+    }
+    @media (max-width: 1699px) {
+      #cr3{
+        font-size: 200%;
+        width: 13%;
+        height: 14%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 95%;
+        }
+        .play-btn i{
+          margin-right: 3px;
+        }
+        .about-head h2{
+          font-size: 180%;
+          width:14%;
+        }
+    }
+    @media (max-width: 1599px) {
+      #cr3{
+        font-size: 180%;
+        width: 13%;
+        height: 12%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 90%;
+        }
+        .play-btn i{
+        margin-right: 3px;
+        font-size: 130%;
+        }
+    }
+    @media (max-width: 1630px) {
+      .gallery-button #btn1{
+        font-size: 135%;
+      }
+    }
+    @media (max-width: 1561px) {
+      .gallery-button #btn1{
+        font-size: 115%;
+      }
+      #cr3{
+        font-size: 160%;
+        width: 13%;
+        height: 13%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 85%;
+        }
+        .play-btn i{
+        margin-right: 3px;
+        font-size: 130%;
+        }
+        .about-para p{
+          width: 60%;
+        }
+    }
+    @media (max-width: 1360px){
+      .play-btn{
+        font-size: 75%;
+        }
+        .play-btn i{
+          margin-right: 3px;
+          font-size: 125%;
+        }
+        .about-head h2{
+          font-size: 150%;
+          width:14%;
+        }
+        .about-para p{
+          width: 65%;
+        }
+    }
+    @media (max-width: 1150px) {
+      .gallery-button #btn1{
+        font-size: 80%;
+      }
+      #cr3{
+        font-size: 150%;
+        width: 15%;
+        height: 15%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 65%;
+        }
+        .play-btn i{
+          margin-right: 3px;
+          font-size: 115%;
+        }
+        .about-head h2{
+          font-size: 150%;
+          width:15%;
+        }
+        .about-para p{
+          width: 73%;
+        }
+    }
+    @media (max-width: 1000px) {
+      .play-btn{
+        font-size: 55%;
+        }
+        .play-btn i{
+          margin-right: 3px;
+          font-size: 115%;
+        }
+        .about-head h2{
+          font-size: 150%;
+          width: 16%;
+        }
+    }
+    @media (max-width: 935px) {
+      #cr3{
+        font-size: 130%;
+        width: 15%;
+        height: 15%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 50%;
+        }
+        .about-img img{
+          height: 300px;
+        }
+        .about-head h2{
+          font-size: 140%;
+          width: 18%;
+        }
+        .about-head p{
+          font-size: 120%;
+        }
+       
+    }
+    
+    @media (max-width: 820px) {
+      .gallery-button #btn1{
+        font-size: 60%;
+          width: 10%;
+      }
+      #cr3{
+        font-size: 100%;
+        width: 15%;
+        height: 15%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 40%;
+        }
+        .about-head h2{
+          font-size: 140%;
+          width: 20%;
+        }
+        .about-head p{
+          font-size: 115%;
+        }
+        .about-link a{
+          font-size: 100%;
+        }
+    }
+    @media (max-width: 740px){
+      .about-head h2{
+        font-size: 140%;
+        width: 22%;
+      }
+      .about-head p{
+        width: 83%;
+        font-size: 118%;
+      }
+    }
+    @media (max-width: 670px){
+      .about-head h2{
+        font-size: 140%;
+        width: 23%;
+      }
+      .about-head p{
+        width: 83%;
+        font-size: 114%;
+      }
+      .play-btn i{
+        margin-right: 2px;
+        font-size: 110%;
+      }
+    }
+    @media (max-width: 650px) {
+      .gallery-button #btn1{
+        font-size: 50%;
+        width: 10%;
+      }
+      #cr3{
+        font-size: 90%;
+        width: 15%;
+        height: 15%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 30%;
+        }
+        .about-head h2{
+          font-size: 140%;
+          width: 25%;
+        }
+        .about-head p{
+          font-size: 110%;
+        }
+    }
+    @media (max-width: 540px) {
+      .gallery-button #btn1{
+        font-size: 40%;
+        width: 11%;
+      }
+      #cr3{
+        font-size: 70%;
+        width: 15%;
+        height: 15%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 25%;
+        }
+        .about-head h2{
+          width: 33%;
+        }
+        .about-head p{
+          width: 77%;
+          font-size: 100%;
+        }
+    }
+    @media (max-width: 430px) {
+      .gallery-button #btn1{
+        font-size: 35%;
+        width: 11%;
+      }
+      #cr3{
+        font-size: 50%;
+        width: 15%;
+        height: 13%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 20%;
+        }
+        .about-head h2{
+          width: 40%;
+        }
+        .about-head p{
+          width: 82%;
+          font-size: 95%;
+        }
+    }
+    @media (max-width: 330px) {
+      .gallery-button #btn1{
+        font-size: 25%;
+      }
+      #cr3{
+        font-size: 25%;
+        width: 15%;
+        height: 13%;
+        right: 25%;
+      }
+      .play-btn{
+        font-size: 15%;
+        }
+        .about-head h2{
+          width: 48%;
+        }
+        .about-head p{
+          font-size: 75%;
+        }
+    }
+    @media (max-width:290px){
+      .back-card p {
+        font-size: 90%;
+      }
+      .flip-card {
+        height: 350px;
+        }
+      .front-card h4 {
+        font-size: 125%;
+      }
+      .about-head h2{
+        font-size: 120%;
+        width: 55%;
+      }
+      .about-head p{
+        font-size: 75%;
+      }
+    }
+
+    @media (max-width:1060px){
+      .book-food-text h2{
+      font-size: 250%;
+      }
+      .about-img img{
+        height: 330px;
+      }
+      }
+      
+      @media (max-width:768px){
+      .book-food-text h2{
+      font-size: 190%;
+      }
+      }
+      @media (max-width:550px){
+      .book-food-text h2{
+      font-size: 155%;
+      }
+      }
+      @media (max-width:430px){
+      .book-food-text h2{
+      font-size: 130%;
+      }
+      }
+      @media (max-width:390px){
+      .book-food-text h2{
+      font-size: 100%;
+      }
+        .about-head h2{
+          width: 42%;
+          font-size: 120%;
+        }
+        .about-head p{
+          font-size: 85%;
+        }
+      }
+
+      @media (max-width:1400px){
+        .blog-text h2{
+        font-size: 200%;
+       }
+       .blog-text .blog-2head{
+        font-size: 180%;
+       }
+       .blog-text p{
+        font-size: 100%;
+       }
+       }
+       @media (max-width:991px){
+        .blog-text h2{
+        font-size: 220%;
+       }
+       .blog-text p{
+        font-size: 150%;
+       }
+       }
+       @media (max-width:767px){
+        .blog-text h2{
+        font-size: 160%;
+       }
+       .blog-text p{
+        font-size: 160%;
+       }
+       }
+       @media (max-width:465px){
+        .blog-text h2{
+        font-size: 120%;
+       }
+       .blog-text p{
+        font-size: 80%;
+       }
+       }
+       @media (max-width:987px){
+        .blog-text a{
+        font-size: 150%;
+       }
+       .blog-img img {
+        width: 100%;
+        height: 320px;
+        border-radius: 10%; 
+      }
+       }
+
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR SECTION  -->
+  <div class="container-fluid sticky-top p-0">
+    <nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark px-2 px-lg-2 py-lg-3 py-sm-2">
+      <div class="d-flex w-100 justify-content-between align-items-center">
+        <div class="navbar-brand p-0">
+          <a href="SHALEPIZZA.html"><img src="1.png" alt="shale pizza"/></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto py-0 pe-5">
+          <li class="nav-item">
+            <a href="SHALEPIZZA.html" class="nav-link active nav-li">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-li" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Menu
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="pizza2.html">Pick Your Pizza</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="final menu.pdf" target="_blank">MenuVault</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-li" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Downtown Pizza
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="Location.html">Dining Spot</a></li>
+              <li><a class="dropdown-item" href="outlets.html">Our Outlets</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="feedback.html" class="nav-link nav-li text-light">SpotSurvey</a>
+          </li>
+          <li class="nav-item">
+            <a href="franchise.html" class="nav-link nav-li">Franchise Info</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link"><i class="fa-solid fa-user nav-icon" style="color: #ffffff;"></i><span class="nav-link nav-li nav-contact">Contact</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div> 
+
+  <!-- CAROUSEL ITEM -->
+  <div id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="cros-1.png" alt="pizza banner" class="d-block w-100 img-1" />
+        <div class="gallery-button">
+          <a href="gallery.html" id="btn1">Explore here</a>
+          <div class="about-video">      
+            <div class="play-btn-wp">
+              <!-- fancy box jquery  -->
+                <a href="VIDEO.mp4" data-fancybox="video" class="play-btn">
+                  <i class="fa-regular fa-circle-play"></i> Watch Now
+                </a>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="cros-2 (1).png" class="d-block w-100" alt="dessert BANNER" />
+      </div>
+      <div class="carousel-item">
+        <img src="cros-3.png" class="d-block w-100 img3" alt="Pizza deal" />
+        <a href="pizza2.html" id="cr3">View Menu</a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- SPECIALITIES SECTION  -->
+  <div class="container specialities mt-3">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 mb-2" data-aos="fade-up"
+      data-aos-duration="3000">
+        <div class="card p-4">
+          <i class="fa-solid fa-user-tie"></i>
+          <h1 class="mt-3">Master chefs</h1>
+          <p>We serve multiple dishes crafted with skill and creativity.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-2" data-aos="fade-up"
+      data-aos-duration="3000">
+        <div class="card p-4">
+          <i class='bx bxs-dish'></i>
+          <h1 class="mt-3">quality food</h1>
+          <p>
+            We serve favourable  meals to delight your taste buds.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-2" data-aos="fade-up"
+      data-aos-duration="3000">
+        <div class="card p-4">
+          <i class="fa-solid fa-cart-plus"></i>
+          <h1 class="mt-3">Online order</h1>
+          <p>
+            Enjoy our food at home with our quick online 
+            service.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+      data-aos-duration="3000">
+        <div class="card p-4">
+          <i class="fa-solid fa-headset"></i>
+          <h1 class="mt-3">24/7 service</h1>
+          <p>
+            We provide friendly services to ensure your satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WEKKLY OFFER  -->
+  <div class="container pt-2 offers pb-5">
+    <!-- Weekend Offers -->
+    <section>
+      <div class="text-center mb-4">
+        <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">Special Offers</p>
+      </div>
+        <h1 class="text-center mb-5" data-aos="zoom-in-right" data-aos-duration="1000">Sunday Funday Deal</h1>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+               data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <span class="badge bg-danger" style="height: 20px;">20%</span>
+                    <img src="cheese.png" alt="extra cheesy pizza" class="card-img offer-image">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Cheese Max</h3>
+                        <p class=" px-3">Overloaded cheesy goodness.</p> 
+                        <button class="btn mb-3" id="availPackageBtn" style="background-color: #bc0101; color: white;">Avail Deal</button>                    
+                    </div>
+                </div>     
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+              <div class="offer-card">
+                <div class="offer-img mt-3">
+                  <span class="badge bg-danger" style="height: 20px;">25%</span>
+                  <img src="fajita1.png" alt="Fajita pizza" class="card-img offer-image">
+                </div>
+                  <div class="offer-details">
+                      <h3>Fajita Pizza</h3>
+                      <p class="px-3"> Spiced grilled chicken delight.</p>
+                      <button class="btn mb-3" id="availPackageBtn2" style="background-color: #bc0101; color: white;">Avail Deal</button>                    
+                  </div>
+              </div>
+          </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <span class="badge bg-danger" style="height: 20px;">40%</span>
+                    <img src="pepproni.png" alt="Pepperoni Fiesta" class="card-img offer-image">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Chili Chick</h3>
+                        <p class="px-3"> Sweet and spicy chicken glaze.</p>
+                        <button class="btn mb-3" id="availPackageBtn3" style="background-color: #bc0101; color: white;">Avail Deal</button>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <span class="badge bg-danger" style="height: 20px;">35%</span>
+                    <img src="veggie.png" alt="Veggie Delight" class="card-img offer-image">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Veggie Delight</h3>
+                        <p class="px-3">Fresh veggies on a cheesy crust.</p>
+                        <button class="btn mb-3" id="availPackageBtn4" style="background-color: #bc0101; color: white;">Avail Deal</button>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Offers -->
+    <section class="mt-5">
+        <h1 class="text-center mb-4" data-aos="zoom-in-right" data-aos-duration="1000">Combo Craze</h1>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <img src="combo1.png" alt="medium cheesy pizza" class="card-img combo-img">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Double Combo</h3>
+                        <p>2 Medium Pizzas + 1 Dessert.</p>
+                        <button class="btn mb-3" id="availPackageBtn5" style="background-color: #bc0101; color: white;">Avail Offer</button>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <img src="combo2.png" alt="large cheesy pizza" class="card-img combo-img">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Family Feast</h3>
+                        <p>3 Large Pizzas + 2 Desserts.</p>
+                        <button class="btn mb-3" id="availPackageBtn6" style="background-color: #bc0101; color: white;">Avail Offer</button> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <img src="combo3.png" alt="Meduim pizza" class="card-img combo-img">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Party Pack</h3>
+                        <p>5 Medium Pizzas + 3 Desserts.</p>
+                        <button class="btn mb-3" id="availPackageBtn7" style="background-color: #bc0101; color: white;">Avail Offer</button> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in"
+            data-aos-duration="3000">
+                <div class="offer-card">
+                  <div class="offer-img mt-3">
+                    <img src="combo4.png" alt="small pizza dessert" class="card-img combo-img">
+                  </div>
+                    <div class="offer-details">
+                        <h3>Snack Combo</h3>
+                        <p class="combo-p">1 Small Pizza + 1 Drink + 1 Dessert.</p>
+                        <button class="btn mb-3" id="availPackageBtn8" style="background-color: #bc0101; color: white;">Avail Offer</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+   <!-- CENTER IMAGE  -->
+   <section id="book">
+    <div class="book-food mt-5">
+      <div class="container book-food-text">
+        <div class="row mt-4">
+          <h2 class="center-img-text" data-aos="zoom-in-right" data-aos-duration="1000">"Where the Crust Meets the Best."</h2>
+          <div class="center-link text-center mt-4">
+            <a href="gallery.html">
+               <button class="button">
+              <span class="button-content" data-aos="zoom-in-right" data-aos-duration="1000">Gallery</span>
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CHEFS SECTION  -->
+  <div class="container mt-3 mb-5">
+    <div class="row">
+      <div class="text-center mb-5">
+        <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">our chefs</p>
+        <h2 class="h2-title" data-aos="zoom-in-right" data-aos-duration="1000">MEET OUR PROFESSIONALS</h2>
+        <div class="sec-title-shape mb-4">
+            <img src="title-shape.svg" alt="">
+        </div>
+     </div>
+   </div>
+    <div class="row mt-2">
+      <div class="col-lg-3 col-md-6"  data-aos="fade-up"
+      data-aos-duration="1500">
+        <div class="flip-card">
+          <div class="flip-card-inner mt-3">
+            <div class="front-card">
+              <img src="chef (1).png" alt="chef" class="card-img ">
+              <h4 class="mt-4">Chef Marco Russo</h4>
+            </div>
+            <div class="back-card">
+              <div class="back-text" style="background: linear-gradient(145deg, #c70000, #fabc35);">
+                <h3 class="mt-3">Marco Russo</h3>
+                <p class="mt-4">
+                   A culinary artist with a flair for spices, Chef Aisha brings bold and vibrant flavors to every dish. Her
+                   expertise lies in fusion cuisine, combining global techniques with local ingredients.
+                </p>
+                <div class="icons mt-2">
+                  <a href="https://www.facebook.com/FoodFusionPK" target="_blank"><i class="fa-brands fa-facebook p-1"
+                      style="color: #0062ad;"></i></a>
+                  <a href="https://www.instagram.com/foodfusionpk/?hl=en" target="_blank"><i
+                      class="fa-brands fa-instagram p-1 ms-2" style="color: #b418c9;"></i></a>
+                  <a href="https://www.youtube.com/@FoodfusionPk" target="_blank"><i class="ri-youtube-fill p-1 ms-2" style="color: #c70000;"></i></a>
+                </div>
+              </div>
+              
+             
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up"
+      data-aos-duration="2000">
+        <div class="flip-card">
+          <div class="flip-card-inner mt-3">
+            <div class="front-card">
+              <img src="chef (4).png" alt="chef" class="card-img ">
+              <h4 class="mt-4">Chef Ethan Moore</h4>
+            </div>
+            <div class="back-card">
+              <div class="back-text" style="background: linear-gradient(145deg, #c70000, #fabc35);">
+                 <h3 class="mt-3">Ethan Moore</h3>
+                 <p class="mt-4">
+                   A pizza maestro from Italy, Chef ethan specializes in crafting authentic, wood-fired pizzas. With over
+                   15 years of experience, his passion lies in blending traditional recipes with modern flavors.
+                 </p>
+                 <div class="icons mt-1">
+                   <a href="https://www.facebook.com/FoodFusionPK" target="_blank"><i class="fa-brands fa-facebook p-1"
+                       style="color: #0062ad;"></i></a>
+                   <a href="https://www.instagram.com/foodfusionpk/?hl=en" target="_blank"><i
+                       class="fa-brands fa-instagram p-1 ms-2" style="color: #b418c9;"></i></a>
+                   <a href="https://www.youtube.com/@FoodfusionPk" target="_blank"><i class="ri-youtube-fill p-1 ms-2" style="color: #c70000;"></i></a>
+               </div>
+             </div>   
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up"
+      data-aos-duration="2500">
+        <div class="flip-card">
+          <div class="flip-card-inner mt-3">
+            <div class="front-card">
+              <img src="chef (3).png" alt="chef" class="card-img ">
+              <h4 class="mt-4">Chef Liam Carter</h4>
+            </div>
+            <div class="back-card">
+              <div class="back-text" style="background: linear-gradient(145deg, #c70000, #fabc35);">
+                 <h3 class="mt-3">Liam Carter</h3>
+               <p class="mt-4">
+                A pastry and dessert expert, Chef Elena's creations are as beautiful as they are delicious. From classic
+                tarts to modern confections, her desserts are sure to impress every palate.
+               </p>
+              <div class="icons">
+                <a href="https://www.facebook.com/FoodFusionPK" target="_blank"><i class="fa-brands fa-facebook p-1"
+                    style="color: #0062ad;"></i></a>
+                <a href="https://www.instagram.com/foodfusionpk/?hl=en" target="_blank"><i
+                    class="fa-brands fa-instagram p-1 ms-2" style="color: #b418c9;"></i></a>
+                <a href="https://www.youtube.com/@FoodfusionPk" target="_blank"><i class="ri-youtube-fill p-1 ms-2" style="color: #c70000;"></i></a>
+              </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up"
+      data-aos-duration="3000">
+        <div class="flip-card">
+          <div class="flip-card-inner mt-3">
+            <div class="front-card">
+              <img src="chef (2).png" alt="chef" class="card-img">
+              <h4 class="mt-4">Chef Carla Ricci</h3>
+            </div>
+            <div class="back-card">       
+        <div class="back-text" style="background: linear-gradient(145deg, #c70000, #fabc35);">
+                <h3 class="mt-3">Carla Ricci</h4>
+                <p class="mt-4">
+                  Known for his innovative approach to cooking, Chef Liam is a master of gourmet creations. His
+                  signature style involves turning simple, fresh ingredients into extraordinary dishes.
+                </p>
+                <div class="icons mt-2">
+                  <a href="https://www.facebook.com/FoodFusionPK" target="_blank"><i class="fa-brands fa-facebook p-1"
+                      style="color: #0062ad;"></i></a>
+                  <a href="https://www.instagram.com/foodfusionpk/?hl=en" target="_blank"><i
+                      class="fa-brands fa-instagram p-1 ms-2" style="color: #b418c9;"></i></a>
+                  <a href="https://www.youtube.com/@FoodfusionPk" target="_blank"><i class="ri-youtube-fill p-1 ms-2" style="color: #c70000;"></i></a>
+                </div>
+              </div>             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+
+  <!-- TESTIMONIALS SECTION  -->
+  <section class="testimonials section" id="Feedback" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">Feedback</p>
+                <h2 class="h2-title" data-aos="zoom-in-right" data-aos-duration="1000">What our customers 
+                  <span>say about us</span></h2>
+                <div class="sec-title-shape mb-4">
+                    <img src="title-shape.svg" alt="">
+                </div>
+            </div>
+        </div>
+     </div>
+       <!-- Picture  -->
+      <div class="row">
+        <div class="col-lg-5 testimonial-card mt-5">
+          <img src="testimonial-img.png" alt="SHALEPIZZA" class="card-img test-img" data-aos="zoom-in" data-aos-duration="2000"/>
+        </div>
+        <!-- Review section  -->
+         <div class="col-lg-7">
+          <div class="row">
+            <div class="col-sm-6" data-aos="zoom-in" data-aos-offset="300"  data-aos-duration="2500">
+              <div class="testimonials-box">
+                      <div class="testimonials-img">
+                        <img src="profile1-min.png" alt="">  
+                      </div>      
+                  <div class="testimonials-box-text">
+                      <h3 class="h3-title">
+                          Abdul Rafy
+                      </h3>
+                      <p>"The flavors were incredible, and the presentation was top-notch! A must-visit for food lovers." </p>
+                  </div>
+                  <div class="rating mt-2">
+                    <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                  </div>
+              </div>
+           </div>
+           <div class="col-sm-6" data-aos="zoom-in" data-aos-offset="300"  data-aos-duration="2800">
+             <div class="testimonials-box">
+                <div class="testimonial-box-top">
+                  <div class="testimonials-img">
+                    <img src="profile2-min.png" alt="">  
+                  </div>
+                </div>
+                <div class="testimonials-box-text">
+                    <h3 class="h3-title">
+                        Mirha Ali
+                    </h3>
+                    <p>"From the first bite to the last, every dish was perfection. Great value for such amazing quality!"</p>
+                </div>
+                <div class="rating mt-2">
+                  <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                  <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                  <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                  <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                  <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                </div>
+             </div>
+           </div>
+           <div class="col-sm-6" data-aos="zoom-in" data-aos-offset="200"  data-aos-duration="3000">
+            <div class="testimonials-box">
+               <div class="testimonial-box-top">
+                <div class="testimonials-img">
+                  <img src="profile4-min.png" alt="">  
+                </div>
+               </div>
+               <div class="testimonials-box-text">
+                   <h3 class="h3-title">
+                       Maria
+                   </h3>
+                   <p>"Online ordering was seamless, and the delivery was super quick. The food was tasted delicious!"</p>
+               </div>
+               <div class="rating mt-2">
+                 <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                 <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                 <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                 <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                 <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+               </div>
+            </div>
+          </div>
+         <div class="col-sm-6" data-aos="zoom-in" data-aos-offset="200"  data-aos-duration="3000">
+          <div class="testimonials-box">
+              <div class="testimonial-box-top">
+                <div class="testimonials-img">
+                  <img src="Profile4.jpg" alt="">  
+                </div>
+              </div>
+              <div class="testimonials-box-text">
+                  <h3 class="h3-title">
+                      Zaviar Khan
+                  </h3>
+                  <p>"Friendly staff and fast service made the experience even better. The food was simply outstanding!"
+                  </p>
+              </div>
+              <div class="rating mt-2">
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+              </div>
+          </div>    
+         </div>
+         </div>
+       </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Gallery sECTION  -->
+  <section class="book-table section">
+    <div class="col-lg-12">
+      <div class="text-center">
+          <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">gallery</p>
+          <h2 class="h2-title" data-aos="zoom-in-right" data-aos-duration="1000">explore here 
+          <div class="sec-title-shape">
+              <img src="title-shape.svg" alt="SHALE PIZZA">
+          </div>
+      </div>
+  </div>
+    <div class="row" id="gallery">
+         <div class="col-lg-10 m-auto">
+             <div class="book-table-img-slider" id="icon">
+                 <div class="swiper-wrapper">
+                    <a href="bt4.png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(bt4.png)"></a>
+                    <a href="dessert2.png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(dessert2.png)"></a>
+                    <a href="gpizza (3).png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(gpizza\ \(3\).png)"></a>
+                    <a href="pizza sandwich3.png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(pizza\ sandwich3.png)"></a>
+                    <a href="bt4.png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(bt4.png)"></a>
+                    <a href="dessert2.png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(dessert2.png)"></a>
+                    <a href="gpizza (6).png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(gpizza\ \(6\).png)"></a>
+                    <a href="gpizza (3).png" data-fancybox="table-slider"
+                        class="book-table-img back-img swiper-slide"
+                        style="background-image: url(gpizza\ \(3\).png)"></a>
+                 </div>
+                 <div class="swiper-button-wp">
+                    <div class="swiper-button-prev swiper-button">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="swiper-button-next swiper-button">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                 </div>
+                <div class="swiper-pagination"></div>
+             </div>
+         </div>
+    </div>
+</section>
+
+
+
+
+ 
+  <!-- FAQS SECTION  -->
+   <section class="faqs">
+      <div class="sec-title text-center mb-5">
+             <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">faqs</p>
+      <h1 data-aos="zoom-in-right" data-aos-duration="1000">Frequently Asked Questions (FAQs)</h1>
+      <div class="sec-title-shape mb-4">
+        <img src="title-shape.svg" alt="">
+     </div>
+      </div>      
+      <div class="container mt-5">
+    <div class="accordion" id="restaurantFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="questionOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#answerOne" aria-expanded="true" aria-controls="answerOne">
+            <strong>Do you offer dine-in, takeaway, or delivery?</strong>
+          </button>
+        </h2>
+        <div id="answerOne" class="accordion-collapse collapse show" aria-labelledby="questionOne" data-bs-parent="#restaurantFAQ">
+          <div class="accordion-body">
+            Yes, we provide dine-in, takeaway, and delivery options to suit your preferences.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="questionTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
+            <strong>What are your opening hours?</strong>
+          </button>
+        </h2>
+        <div id="answerTwo" class="accordion-collapse collapse" aria-labelledby="questionTwo" data-bs-parent="#restaurantFAQ">
+          <div class="accordion-body">
+            We are open daily from 11:00 AM to 11:00 PM.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="questionThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerThree" aria-expanded="false" aria-controls="answerThree">
+            <strong>Do you offer vegetarian or vegan options?</strong>
+          </button>
+        </h2>
+        <div id="answerThree" class="accordion-collapse collapse" aria-labelledby="questionThree" data-bs-parent="#restaurantFAQ">
+          <div class="accordion-body">
+            Yes, we have a variety of vegetarian and vegan dishes to choose from.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="questionFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerFour" aria-expanded="false" aria-controls="answerFour">
+            <strong>Can I make a reservation?</strong>
+          </button>
+        </h2>
+        <div id="answerFour" class="accordion-collapse collapse" aria-labelledby="questionFour" data-bs-parent="#restaurantFAQ">
+          <div class="accordion-body">
+            Yes, reservations can be made via phone or through our website's reservation system.
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+   </section>
+    
+
+   <!-- About Us  -->
+ <section class="about">
+  <div class="col-lg-12 about-img mt-5">
+   <div class="about-content">
+       <div class="about-head mt-2">
+          <div class="about-title">
+            <h2 class="mt-5" data-aos="zoom-in-right" data-aos-duration="1000">About Us</h2>
+          </div>
+           <div class="about-para mt-4" data-aos="zoom-in-right" data-aos-duration="1000">
+              <p>"Welcome to Shale Pizza, where every slice tells a story of flavor and quality! We’re dedicated to crafting the perfect pizza using the freshest ingredients and bold, mouthwatering recipes."</p>
+          </div>
+          <div class="about-link mt-3" data-aos="zoom-in-right" data-aos-duration="1000">
+              <a href="about.html">
+                <button class="button1">
+               <span class="button-content">View More</span>
+               </button>
+             </a>
+           </div>     
+       </div> 
+   </div>
+  </div>
+ </section>
+      
+
+  
+<!-- blog section  -->
+ <section class="blog-section">
+     <div class="container">
+  <div class="row">
+    <div class="text-center mb-4">
+      <p class="sub-title mb-3" data-aos="zoom-in-left" data-aos-duration="1000">our blog</p>
+      <h2 class="h2-title" data-aos="zoom-in-right" data-aos-duration="1000">our latest publication</h2>
+      <div class="sec-title-shape mb-4">
+          <img src="title-shape.svg" alt="">
+      </div>
+  </div>
+  <div class="col-lg-4 p-2" data-aos="zoom-in"
+  data-aos-duration="3000">
+    <div class="blog-box">        
+       <div class="blog-inner">
+         <div class="blog-img">
+           <img src="blog (2).png" alt="" class="card-img">
+         </div>
+         <hr style="background-color: rgb(4, 124, 0);">
+         <div class="blog-text px-2">
+           <h2>The Secret of Perfect Pizza</h2>
+           <p>Pizza is a universal language of love. Its warm, cheesy goodness paired with endless customization options makes it a go-to for any occasion.</p>
+           <div class="link">
+             <a href="The Secret of Perfect Pizza.docx" target="_blank" class="btn btn-success">Read More</a>
+           </div>       
+         </div>
+       </div>          
+    </div>
+  </div>
+  <div class="col-lg-4 p-2" data-aos="zoom-in"
+  data-aos-duration="3000">
+   <div class="blog-box">        
+      <div class="blog-inner">
+        <div class="blog-img">
+          <img src="blog (1).png" alt="" class="card-img">
+        </div>
+        <hr style="background-color: rgb(4, 124, 0);">
+        <div class="blog-text px-2">
+          <h2>The Sweetest Traditions</h2>
+          <p>Desserts are the grand finale to any meal, a sweet leaves a lasting impression. From creamy cakes to warm brownies, there’s a dessert for craving.</p>
+          <div class="link">
+            <a href="The Sweetest tradition.docx" target="_blank" class="btn btn-success">Read More</a>
+          </div>       
+        </div>
+      </div>          
+   </div>
+ </div>
+ <div class="col-lg-4 p-2" data-aos="zoom-in"
+ data-aos-duration="3000">
+   <div class="blog-box">        
+      <div class="blog-inner">
+        <div class="blog-img">
+          <img src="blog (3).png" alt="" class="card-img">
+        </div>
+        <hr style="background-color: rgb(4, 124, 0);">
+        <div class="blog-text px-2">
+          <h2>Rise of Pizza Sandwiches</h2>
+          <p>If you’re torn between indulging in a pizza or a sandwich, why not have both? A pizza sandwich combines the best of two dishes into one creation.</p>
+          <div class="link">
+            <a href="Rise of pizza sandwiches.docx" target="_blank" class="btn btn-success">Read More</a>
+          </div>       
+        </div>
+      </div>          
+   </div>
+ </div>
+ </div>
+ </div>  
+ </section>
+ 
+
+
+  <!-- FOOTER SECTION -->
+   <section class="footer-sec">
+    <div class="container-fluid footer-section mt-5">
+      <div class="container">
+        <div class="row footer">
+          <div class="col-lg-3  col-sm-6 foot" data-aos="fade-up"
+          data-aos-duration="3000">
+            <div class="footer-img mt-5">
+              <img src="1.png" alt="logo" />
+            </div>
+            <p  class="text-light mt-3">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam
+              adipisci explicabo
+            </p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/foodfusionpk/?hl=en" class="socialContainer containerOne"
+                target="_blank">
+                <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                  </path>
+                </svg>
+              </a>
+   
+              <a href="https://pk.linkedin.com/company/foodfusion" class="socialContainer containerThree" target="_blank">
+                <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                  </path>
+                </svg>
+              </a>
+  
+              <a href="https://www.whatsapp.com/download/" class="socialContainer containerFour" target="_blank">
+                <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                  <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3  col-sm-6 foot" data-aos="fade-up"
+          data-aos-duration="3000">
+            <div class="footer-hour-text ms-5">
+              <h2 class="openhour mt-5" style="color: #f58302">Open Hours</h2>
+              <p class="mt-3 text-light">
+                <i class="fa-regular fa-clock" style="color: #e27b05"></i>
+                Mon-Thurs : 9am - 12pm
+              </p>
+              <p class="text-light">
+                <i class="fa-regular fa-clock" style="color: #e27b05"></i>
+                Fri-Sun : 8am - 4am
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3  col-sm-6 foot quick-links" data-aos="fade-up"
+          data-aos-duration="3000">
+            <h2 class="quick mt-5 ms-4" style="color: #e27b05">Quick links</h2>
+            <ul class="link mt-4">
+              <li><a href="SHALEPIZZA.html">Home</a></li>
+              <li class="link mt-1"><a href="pizza2.html">Menu</a></li>
+              <li class="link mt-1"><a href="about.html">About Us</a></li>
+              <li class="link mt-1"><a href="Location.html">Dining Spot</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-sm-6 company foot" data-aos="fade-up"
+          data-aos-duration="3000">
+            <h2 class="mt-5" style="color: #e27b05">Company</h2>
+            <p class="mt-4"><a href="Terms & Condition.pdf" target="_blank">Terms & condition</a></p>
+            <p><a href="Privacy Policy.docx" target="_blank">Privacy Policy</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <p class="text-center text-success mt-3">&copy;copyright: All Right Reserved</p>
+        </div>
+      </div>
+    </div>
+   </section>
+  
+
+  
+
+   <!-- jquery  -->
+   <script src="jquery-3.5.1.min.js"></script>
+   <!-- bootstrap -->
+  <script src="bootstrap.min.js"></script>
+   <!-- swiper slider  -->
+   <script src="swiper-bundle.min.js"></script> 
+   <!-- mixitup -- filter  -->
+   <script src="jquery.mixitup.min.js"></script>
+   <!-- fancy box  -->
+   <script src="jquery.fancybox.min.js"></script> 
+  <!-- gsap  -->
+   <script src="gsap.min.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    $(document).ready(function ($) {
+    "use strict";
+    var book_table = new Swiper(".book-table-img-slider", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        speed: 2000,
+        effect: "coverflow",
+        coverflowEffect: {
+            rotate: 3,
+            stretch: 2,
+            depth: 100,
+            modifier: 5,
+            slideShadows: false,
+        },
+        loopAdditionSlides: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });  
+});
+  document.getElementById('availPackageBtn').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Deal!',
+            text: 'You have selected the Cheese Max with 20% off.',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn2').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Deal!',
+            text: 'You have selected Fajita Pizza with 25% off.',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn3').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Deal!',
+            text: 'You have selected the Chilli Chick with 40% off.',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn4').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Deal!',
+            text: 'You have selected the Veggie Delight with 35% off.',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn5').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Offer!',
+            text: 'You have selected Double Combo',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn6').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avai Offer!',
+            text: 'You have selected Family Feast',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn7').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Offer!',
+            text: 'You have selected Party Pack',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+    document.getElementById('availPackageBtn8').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Avail Offer!',
+            text: 'You have selected Snack Combo',
+            icon: 'success',
+            confirmButtonText: 'Confirm!',
+        });
+    });
+  </script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
