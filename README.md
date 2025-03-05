@@ -1,0 +1,1 @@
+First Responsive Static Website.
